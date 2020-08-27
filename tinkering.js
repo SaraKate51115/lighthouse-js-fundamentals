@@ -1,7 +1,23 @@
+const stations = [
+  ['Big Bear Donair', 10, 'restaurant'],
+  ['Bright Lights Elementary', 50, 'school'],
+  ['Moose Mountain Community Centre', 45, 'community centre']
+];
 
-const amounts = [61.00, 52.25, 112.95, 5.00];
-let total = 0;
-for (let amount of amounts){
-  total += amount;
+function chooseStations (stations) {
+  const goodStations = [];
+
+  for (const station of stations) {
+    const capacity = station[1];
+    
+    if (capacity >= 20) {
+      
+      const type = station[2];
+      if (type === 'school' || type === 'community centre') {
+        goodStations.push(station[0]);
+      }
+    }
+  }
+  return goodStations;
 }
-console.log('Order total is: ', total);
+console.log(chooseStations(stations));
